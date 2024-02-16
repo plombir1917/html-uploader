@@ -42,8 +42,7 @@ export class AppController {
   async downloadPages(@Body() data: { urls: string[]; proxies?: string[] }) {
     const { urls, proxies } = data;
     return await this.appService.downloadPages(object({
-      url: string[],
-      proxies: string[]
+      url: string[]
     });
   }
 }
