@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { error } from 'console';
 import * as fs from 'fs';
 
 @Injectable()
 export class AppService {
   async downloadPage(url: string, proxy?: string) {
     try {
+      console.log(url);
       const response = await axios.get(url);
       const data = response.data;
-      const fileName = 'downloaded.html';
+      const fileName = `./downloads/${new Date().getMilliseconds()}.html`;
       fs.writeFileSync(fileName, data);
       return `Downloaded ${url}, status code: ${response.status}`;
     } catch (error) {
