@@ -6,7 +6,6 @@ import * as fs from 'fs';
 export class AppService {
   async downloadPage(url: string, proxy?: string) {
     try {
-      console.log(url);
       const response = await axios.get(url);
       const data = response.data;
       const fileName = `./downloads/${new Date().getMilliseconds()}.html`;
